@@ -1,0 +1,836 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e2a;
+    --border: #252a38;
+    --green: #42d392;
+    --blue: #61affe;
+    --orange: #ffa94d;
+    --pink: #f97fb4;
+    --purple: #b388ff;
+    --yellow: #ffe066;
+    --text: #cdd6f4;
+    --muted: #6c7086;
+    --white: #e6e9f4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0d0f14 0%, #1a1e2a 50%, #0f1420 100%);
+    padding: 48px 40px 36px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(66,211,146,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(66,211,146,0.1);
+    border: 1px solid rgba(66,211,146,0.3);
+    border-radius: 99px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .hero h1 span { color: var(--green); }
+  .hero p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+  }
+  .toc {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 24px;
+  }
+  .toc a {
+    text-decoration: none;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    transition: all 0.2s;
+    font-family: 'Space Mono', monospace;
+  }
+  .toc a:hover { border-color: var(--green); color: var(--green); }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+  
+  .section {
+    margin-bottom: 52px;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .section:nth-child(1) { animation-delay: 0.05s }
+  .section:nth-child(2) { animation-delay: 0.1s }
+  .section:nth-child(3) { animation-delay: 0.15s }
+  .section:nth-child(4) { animation-delay: 0.2s }
+  .section:nth-child(5) { animation-delay: 0.25s }
+  .section:nth-child(6) { animation-delay: 0.3s }
+  .section:nth-child(7) { animation-delay: 0.35s }
+  .section:nth-child(8) { animation-delay: 0.4s }
+  .section:nth-child(9) { animation-delay: 0.45s }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+  .section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .section h2 .accent { color: var(--green); }
+  .section h2 .accent-blue { color: var(--blue); }
+  .section h2 .accent-orange { color: var(--orange); }
+  .section h2 .accent-pink { color: var(--pink); }
+  .section h2 .accent-purple { color: var(--purple); }
+
+  .desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .desc strong { color: var(--text); }
+
+  pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    overflow-x: auto;
+    position: relative;
+  }
+  .pre-label {
+    position: absolute;
+    top: 10px; right: 14px;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  /* Syntax colours */
+  .k  { color: var(--pink); }      /* keyword */
+  .fn { color: var(--blue); }      /* function/method */
+  .s  { color: var(--yellow); }    /* string */
+  .n  { color: var(--orange); }    /* number */
+  .c  { color: #555c7a; font-style: italic; } /* comment */
+  .d  { color: var(--green); }     /* directive / vue-specific */
+  .p  { color: var(--purple); }    /* property */
+  .t  { color: var(--text); }      /* plain text */
+  .h  { color: var(--pink); }      /* html tag */
+  .a  { color: var(--orange); }    /* attribute */
+  .v  { color: var(--yellow); }    /* value / interpolation */
+
+  .tag { color: var(--pink); }
+  .attr { color: var(--orange); }
+  .val { color: var(--yellow); }
+  .dir { color: var(--green); }
+  .interp { color: var(--blue); }
+  .comment-line { color: #555c7a; font-style: italic; }
+
+  .pill-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-family: 'Space Mono', monospace;
+  }
+  .pill.green { border-color: rgba(66,211,146,0.4); color: var(--green); }
+  .pill.blue  { border-color: rgba(97,175,254,0.4); color: var(--blue); }
+  .pill.orange{ border-color: rgba(255,169,77,0.4); color: var(--orange); }
+  .pill.purple{ border-color: rgba(179,136,255,0.4);color: var(--purple); }
+  .pill.pink  { border-color: rgba(249,127,180,0.4);color: var(--pink); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .card h4 {
+    font-size: 13px;
+    color: var(--green);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: var(--bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--blue);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8px 0 20px;
+  }
+
+  .tip {
+    background: rgba(66,211,146,0.05);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .tip strong { color: var(--green); }
+  
+  .struct-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .struct-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+  .struct-row:last-child { border-bottom: none; }
+  .struct-key {
+    width: 140px;
+    flex-shrink: 0;
+    background: var(--surface2);
+    padding: 10px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+  }
+  .struct-val {
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .struct-val code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: var(--bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--blue);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">📗 COS30043 · Vue 3</div>
+  <h1>Vue<span>.js</span> Notes</h1>
+  <p>// Everything you've covered so far, in one place</p>
+  <nav class="toc">
+    <a href="#s1">App Structure</a>
+    <a href="#s2">v-model</a>
+    <a href="#s3">v-bind</a>
+    <a href="#s4">v-if / v-else</a>
+    <a href="#s5">v-for</a>
+    <a href="#s6">v-on</a>
+    <a href="#s7">methods</a>
+    <a href="#s8">computed</a>
+    <a href="#s9">watch</a>
+    <a href="#s10">components</a>
+    <a href="#s11">directives</a>
+    <a href="#s12">router</a>
+  </nav>
+</div>
+
+<div class="content">
+
+<!-- ─── 1. APP STRUCTURE ─── -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>App <span class="accent">Structure</span></h2>
+  </div>
+  <p class="desc">Every Vue 3 app follows this skeleton. The five core <strong>options</strong> live inside <code>createApp({})</code>.</p>
+
+  <div class="struct-box" style="margin-bottom:16px">
+    <div class="struct-row">
+      <div class="struct-key">data()</div>
+      <div class="struct-val">Returns an object of <strong>reactive variables</strong>. Any change here auto-updates the DOM.</div>
+    </div>
+    <div class="struct-row">
+      <div class="struct-key">methods</div>
+      <div class="struct-val">Functions you call from the template. Use <code>this.x</code> to access data.</div>
+    </div>
+    <div class="struct-row">
+      <div class="struct-key">computed</div>
+      <div class="struct-val">Derived values. Re-run only when their dependencies change (cached).</div>
+    </div>
+    <div class="struct-row">
+      <div class="struct-key">watch</div>
+      <div class="struct-val">Runs a function whenever a specific data property changes.</div>
+    </div>
+    <div class="struct-row">
+      <div class="struct-key">created</div>
+      <div class="struct-val">Lifecycle hook — runs once when the app instance is first created.</div>
+    </div>
+  </div>
+
+  <pre><span class="comment-line">// ① Load Vue from CDN</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://unpkg.com/vue@3/dist/vue.global.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="comment-line">// ② Create &amp; mount the app</span>
+<span class="k">const</span> { <span class="fn">createApp</span> } = Vue
+
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> {
+      <span class="p">yourName</span>: <span class="s">''</span>,      <span class="comment-line">// reactive variable</span>
+    }
+  },
+
+  <span class="p">methods</span>: {           <span class="comment-line">// functions</span>
+    <span class="fn">greet</span>() { <span class="k">return</span> <span class="s">'Hi, '</span> + <span class="k">this</span>.<span class="p">yourName</span> }
+  },
+
+  <span class="p">computed</span>: {          <span class="comment-line">// derived / cached values</span>
+    <span class="fn">shout</span>() { <span class="k">return</span> <span class="k">this</span>.<span class="p">yourName</span>.<span class="fn">toUpperCase</span>() }
+  },
+
+  <span class="p">watch</span>: {             <span class="comment-line">// side-effects on change</span>
+    <span class="fn">yourName</span>(newV, oldV) { <span class="fn">console</span>.<span class="fn">log</span>(newV) }
+  },
+
+  <span class="p">created</span>() {          <span class="comment-line">// runs once on startup</span>
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="s">'App ready!'</span>)
+  }
+
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)  <span class="comment-line">// ③ attach to &lt;div id="app"&gt;</span>
+</pre>
+  <div class="tip"><strong>MVVM:</strong> The HTML is your <strong>View</strong>, <code>data()</code> is your <strong>Model</strong>, and Vue is the <strong>ViewModel</strong> binding them together automatically.</div>
+</div>
+
+<!-- ─── 2. v-model ─── -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2><span class="accent">v-model</span> — Two-way Binding</h2>
+  </div>
+  <p class="desc">Links an <code>&lt;input&gt;</code> to a data property — when the user types, the variable updates instantly, and vice versa.</p>
+
+  <div class="pill-row">
+    <span class="pill green">v-model="varName"</span>
+    <span class="pill blue">v-model.lazy="varName"</span>
+    <span class="pill orange">works on: input, textarea, select, radio, checkbox</span>
+  </div>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Text input bound to 'yourName' --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model</span>=<span class="val">"yourName"</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="tag">/&gt;</span>
+
+  <span class="comment-line">&lt;!-- .lazy only updates when the field loses focus --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model.lazy</span>=<span class="val">"fruit"</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="tag">/&gt;</span>
+
+  <span class="comment-line">&lt;!-- Radio buttons share the same v-model variable --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="dir">v-model</span>=<span class="val">"subject"</span> <span class="attr">value</span>=<span class="val">"Math"</span><span class="tag">&gt;</span> Math
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="dir">v-model</span>=<span class="val">"subject"</span> <span class="attr">value</span>=<span class="val">"English"</span><span class="tag">&gt;</span> English
+
+  <span class="comment-line">&lt;!-- {{ }} interpolation displays the value --&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Hello, <span class="interp">{{ yourName }}</span>!<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> { <span class="p">yourName</span>: <span class="s">''</span>, <span class="p">subject</span>: <span class="s">''</span>, <span class="p">fruit</span>: <span class="s">'apple'</span> }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 3. v-bind ─── -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2><span class="accent-blue">v-bind</span> — Dynamic Attributes</h2>
+  </div>
+  <p class="desc">Binds an HTML attribute to a data value. Shorthand: replace <code>v-bind:</code> with just <code>:</code></p>
+
+  <div class="pill-row">
+    <span class="pill blue">v-bind:href="url"</span>
+    <span class="pill blue">:src="imageSrc"</span>
+    <span class="pill blue">:class="myClass"</span>
+  </div>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Long form --&gt;</span>
+  <span class="tag">&lt;a</span> <span class="dir">v-bind:href</span>=<span class="val">"someUrl"</span><span class="tag">&gt;</span>Visit Swinburne<span class="tag">&lt;/a&gt;</span>
+
+  <span class="comment-line">&lt;!-- Shorthand (: prefix) — same result --&gt;</span>
+  <span class="tag">&lt;img</span> <span class="dir">:src</span>=<span class="val">"imageSrc"</span> <span class="attr">alt</span>=<span class="val">"flower"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> {
+      <span class="p">someUrl</span>: <span class="s">'https://swin.edu.au'</span>,
+      <span class="p">imageSrc</span>: <span class="s">'flower.jpg'</span>
+    }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+  <div class="tip"><strong>Key distinction:</strong> Use <code>{{ }}</code> for <em>text content inside</em> a tag. Use <code>v-bind:</code> / <code>:</code> for <em>HTML attributes</em>.</div>
+</div>
+
+<!-- ─── 4. v-if / v-else ─── -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2><span class="accent-orange">v-if</span> / <span class="accent-orange">v-else</span> — Conditional Rendering</h2>
+  </div>
+  <p class="desc">Shows or hides elements based on a condition. The element is <strong>removed from the DOM</strong> entirely when false (unlike <code>v-show</code> which just hides it with CSS).</p>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Buttons to set the reactive variable --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">v-on:click</span>=<span class="val">"animal='cat'"</span><span class="tag">&gt;</span>Cats<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">v-on:click</span>=<span class="val">"animal='dog'"</span><span class="tag">&gt;</span>Dogs<span class="tag">&lt;/button&gt;</span>
+
+  <span class="comment-line">&lt;!-- Only renders when animal == 'cat' --&gt;</span>
+  <span class="tag">&lt;div</span> <span class="dir">v-if</span>=<span class="val">"animal == 'cat'"</span><span class="tag">&gt;</span>🐱 Cat section<span class="tag">&lt;/div&gt;</span>
+
+  <span class="comment-line">&lt;!-- Renders for everything else --&gt;</span>
+  <span class="tag">&lt;div</span> <span class="dir">v-else</span><span class="tag">&gt;</span>🐶 Dog section<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() { <span class="k">return</span> { <span class="p">animal</span>: <span class="s">'cat'</span> } }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 5. v-for ─── -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2><span class="accent-pink">v-for</span> — List Rendering</h2>
+  </div>
+  <p class="desc">Loops over an array and renders an element for each item. Works on any HTML element or component.</p>
+
+  <div class="pill-row">
+    <span class="pill pink">v-for="item in array"</span>
+    <span class="pill pink">v-for="(item, index) in array"</span>
+    <span class="pill pink">v-for="obj in objectArray"</span>
+  </div>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Simple array of strings --&gt;</span>
+  <span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li</span> <span class="dir">v-for</span>=<span class="val">"s in students"</span><span class="tag">&gt;</span><span class="interp">{{ s }}</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;/ul&gt;</span>
+
+  <span class="comment-line">&lt;!-- Array of objects — access properties with dot notation --&gt;</span>
+  <span class="tag">&lt;tr</span> <span class="dir">v-for</span>=<span class="val">"m in filterMarks"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;td&gt;</span><span class="interp">{{ m.sName }}</span><span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span><span class="interp">{{ m.subject }}</span><span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span><span class="interp">{{ m.mark }}</span><span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> {
+      <span class="p">students</span>: [<span class="s">'Amy'</span>, <span class="s">'Bill'</span>, <span class="s">'Casey'</span>],
+      <span class="p">filterMarks</span>: [
+        { <span class="p">sName</span>: <span class="s">'Amy'</span>, <span class="p">subject</span>: <span class="s">'Math'</span>, <span class="p">mark</span>: <span class="n">88</span> },
+        { <span class="p">sName</span>: <span class="s">'Bill'</span>, <span class="p">subject</span>: <span class="s">'English'</span>, <span class="p">mark</span>: <span class="n">74</span> },
+      ]
+    }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 6. v-on ─── -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2><span class="accent-purple">v-on</span> — Event Handling</h2>
+  </div>
+  <p class="desc">Listens for DOM events (click, dblclick, input…) and runs an expression or method. Shorthand: replace <code>v-on:</code> with <code>@</code></p>
+
+  <div class="pill-row">
+    <span class="pill purple">v-on:click="handler"</span>
+    <span class="pill purple">@click="handler"</span>
+    <span class="pill purple">v-on:dblclick="..."</span>
+    <span class="pill purple">@click="val = 'something'"</span>
+  </div>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Inline expression — no method needed for simple changes --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">v-on:click</span>=<span class="val">"count++"</span><span class="tag">&gt;</span>Click me (<span class="interp">{{ count }}</span>)<span class="tag">&lt;/button&gt;</span>
+
+  <span class="comment-line">&lt;!-- Shorthand @ — calls a method --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">@click</span>=<span class="val">"changeText"</span><span class="tag">&gt;</span>Change Text<span class="tag">&lt;/button&gt;</span>
+
+  <span class="comment-line">&lt;!-- Single vs double click --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">v-on:click</span>=<span class="val">"clk='Single'"</span> <span class="dir">v-on:dblclick</span>=<span class="val">"clk='Double'"</span><span class="tag">&gt;</span>
+    Click or Double-click
+  <span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="interp">{{ clk }}</span><span class="tag">&lt;/p&gt;</span>
+
+  <span class="comment-line">&lt;!-- Toggle a boolean --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">@click</span>=<span class="val">"show = !show"</span><span class="tag">&gt;</span>Toggle<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;h2</span> <span class="dir">v-if</span>=<span class="val">"show"</span><span class="tag">&gt;</span>Visible!<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+</div>
+
+<!-- ─── 7. methods ─── -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2>Methods <span class="accent">— Functions</span></h2>
+  </div>
+  <p class="desc">Methods are plain functions. Call them from the template with <code>()</code>. Always use <code>this.x</code> to access data properties inside a method.</p>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model</span>=<span class="val">"fname"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model</span>=<span class="val">"time"</span><span class="tag">&gt;</span>
+
+  <span class="comment-line">&lt;!-- Call method with arguments directly in template --&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="interp">{{ sayhello(fname, time) }}</span><span class="tag">&lt;/p&gt;</span>
+
+  <span class="comment-line">&lt;!-- Or call a no-argument method on button click --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="dir">@click</span>=<span class="val">"checkGuess()"</span><span class="tag">&gt;</span>Check<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> { <span class="p">fname</span>: <span class="s">'Amy'</span>, <span class="p">time</span>: <span class="s">'3'</span>, <span class="p">guess</span>: <span class="s">''</span>, <span class="p">secret</span>: <span class="n">0</span>, <span class="p">msg</span>: <span class="s">''</span> }
+  },
+  <span class="p">methods</span>: {
+    <span class="comment-line">// Method with parameters</span>
+    <span class="fn">sayhello</span>(fname, time) {
+      <span class="k">if</span> (time &lt; <span class="n">12</span>)       <span class="k">return</span> <span class="s">'Good morning, '</span> + <span class="k">this</span>.<span class="p">fname</span>
+      <span class="k">else if</span> (time &lt; <span class="n">18</span>)  <span class="k">return</span> <span class="s">'Good afternoon, '</span> + <span class="k">this</span>.<span class="p">fname</span>
+      <span class="k">else</span>                  <span class="k">return</span> <span class="s">'Good evening, '</span> + <span class="k">this</span>.<span class="p">fname</span>
+    },
+
+    <span class="comment-line">// Method accessing data with 'this'</span>
+    <span class="fn">checkGuess</span>() {
+      <span class="k">if</span> (<span class="k">this</span>.<span class="p">secret</span> % <span class="n">2</span> === <span class="n">0</span> &amp;&amp; <span class="k">this</span>.<span class="p">guess</span> === <span class="s">'even'</span>)
+        <span class="k">this</span>.<span class="p">msg</span> = <span class="s">'Correct!'</span>
+      <span class="k">else</span>
+        <span class="k">this</span>.<span class="p">msg</span> = <span class="s">'Wrong!'</span>
+    },
+
+    <span class="comment-line">// Helper method called by other methods</span>
+    <span class="fn">genRandomNum</span>() {
+      <span class="k">return</span> Math.<span class="fn">floor</span>(Math.<span class="fn">random</span>() * <span class="n">100</span>) + <span class="n">1</span>
+    }
+  },
+
+  <span class="p">created</span>() {   <span class="comment-line">// auto-run on startup</span>
+    <span class="k">this</span>.<span class="p">secret</span> = <span class="k">this</span>.<span class="fn">genRandomNum</span>()
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 8. computed ─── -->
+<div class="section" id="s8">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2>Computed <span class="accent-blue">— Cached Derived Values</span></h2>
+  </div>
+  <p class="desc">Like a method, but <strong>cached</strong> — only re-calculates when its reactive dependencies change. Use it for derived display logic instead of methods when the result depends purely on data.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>✅ Use computed when</h4>
+      <p>The value is <strong>derived from data</strong> and doesn't need arguments. e.g. reversing a string, filtering a list.</p>
+    </div>
+    <div class="card">
+      <h4>✅ Use methods when</h4>
+      <p>You need to <strong>pass arguments</strong>, trigger a side effect, or call it from an event handler.</p>
+    </div>
+  </div>
+
+<pre style="margin-top:16px"><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model</span>=<span class="val">"msg"</span> <span class="attr">placeholder</span>=<span class="val">"Type something..."</span><span class="tag">&gt;</span>
+
+  <span class="comment-line">&lt;!-- Computed property used like a data variable (no parentheses!) --&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Reversed: <span class="interp">{{ reversedMessage }}</span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() { <span class="k">return</span> { <span class="p">msg</span>: <span class="s">''</span> } },
+
+  <span class="p">computed</span>: {
+    <span class="fn">reversedMessage</span>() {
+      <span class="comment-line">// Only re-runs when this.msg changes</span>
+      <span class="k">return</span> <span class="k">this</span>.<span class="p">msg</span>.<span class="fn">split</span>(<span class="s">''</span>).<span class="fn">reverse</span>().<span class="fn">join</span>(<span class="s">''</span>)
+    },
+
+    <span class="comment-line">// Practical example: filter a list based on user input</span>
+    <span class="fn">filterMarks</span>() {
+      <span class="k">return</span> <span class="k">this</span>.<span class="p">marks</span>.<span class="fn">filter</span>(m =&gt;
+        m.<span class="p">sName</span>.<span class="fn">includes</span>(<span class="k">this</span>.<span class="p">stuObj</span>.<span class="p">sName</span>) &amp;&amp;
+        m.<span class="p">subject</span>.<span class="fn">includes</span>(<span class="k">this</span>.<span class="p">stuObj</span>.<span class="p">subject</span>)
+      )
+    }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 9. watch ─── -->
+<div class="section" id="s9">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <h2>Watch <span class="accent-orange">— Side Effects on Change</span></h2>
+  </div>
+  <p class="desc">Runs a function <em>whenever a specific data property changes</em>. Good for async operations, alerts, or updating other data in response to a change.</p>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- .lazy = only trigger watch when field loses focus --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="dir">v-model.lazy</span>=<span class="val">"fruit"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2&gt;</span><span class="interp">{{ msg }}</span><span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> { <span class="p">fruit</span>: <span class="s">'apple'</span>, <span class="p">fName</span>: <span class="s">''</span>, <span class="p">lName</span>: <span class="s">''</span>, <span class="p">msg</span>: <span class="s">''</span> }
+  },
+  <span class="p">watch</span>: {
+    <span class="comment-line">// Receives (newValue, oldValue)</span>
+    <span class="fn">fruit</span>(newV, oldV) {
+      <span class="k">this</span>.<span class="p">msg</span> = <span class="s">`Changed from ${oldV} to ${newV}`</span>
+    },
+
+    <span class="comment-line">// Watch multiple properties separately</span>
+    <span class="fn">fName</span>(newV, oldV) {
+      <span class="fn">alert</span>(<span class="s">`First name: ${oldV} → ${newV}`</span>)
+    },
+    <span class="fn">lName</span>(newV, oldV) {
+      <span class="fn">alert</span>(<span class="s">`Last name: ${oldV} → ${newV}`</span>)
+    }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+  <div class="tip"><strong>Tip:</strong> Use <code>v-model.lazy</code> with <code>watch</code> so the watcher only fires when the user finishes typing and moves focus away — not on every keypress.</div>
+</div>
+
+<!-- ─── 10. components ─── -->
+<div class="section" id="s10">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <h2>Components <span class="accent-pink">— Reusable Pieces</span></h2>
+  </div>
+  <p class="desc">Components are mini-apps you can reuse. Each has its own <code>data()</code> (so state is independent) and a <code>template</code>. Pass data in from the parent with <strong>props</strong>.</p>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- Each instance has its own counter --&gt;</span>
+  <span class="tag">&lt;data-function-example&gt;&lt;/data-function-example&gt;</span>
+  <span class="tag">&lt;data-function-example&gt;&lt;/data-function-example&gt;</span>
+
+  <span class="comment-line">&lt;!-- Pass a prop using v-bind --&gt;</span>
+  <span class="tag">&lt;blog-post</span> <span class="attr">title</span>=<span class="val">"My Vue Journey"</span><span class="tag">&gt;&lt;/blog-post&gt;</span>
+  <span class="tag">&lt;my-component</span> <span class="dir">:fruits</span>=<span class="val">"['apple','banana']"</span><span class="tag">&gt;&lt;/my-component&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="k">const</span> app = <span class="fn">createApp</span>({})
+
+<span class="comment-line">// Component with independent state (data as function = each instance isolated)</span>
+app.<span class="fn">component</span>(<span class="s">'data-function-example'</span>, {
+  <span class="p">data</span>: <span class="k">function</span>() { <span class="k">return</span> { <span class="p">counter</span>: <span class="n">0</span> } },
+  <span class="p">template</span>: <span class="s">`&lt;button @click="counter++"&gt;Count: {{ counter }}&lt;/button&gt;`</span>
+})
+
+<span class="comment-line">// Component that receives a string prop</span>
+app.<span class="fn">component</span>(<span class="s">'blog-post'</span>, {
+  <span class="p">props</span>: [<span class="s">'title'</span>],
+  <span class="p">template</span>: <span class="s">'&lt;p&gt;{{ title }}&lt;/p&gt;'</span>
+})
+
+<span class="comment-line">// Component that receives an array prop, renders with v-for</span>
+app.<span class="fn">component</span>(<span class="s">'my-component'</span>, {
+  <span class="p">props</span>: [<span class="s">'fruits'</span>],
+  <span class="p">template</span>: <span class="s">'&lt;p v-for="f in fruits"&gt;{{ f }}&lt;/p&gt;'</span>
+})
+
+app.<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 11. custom directives ─── -->
+<div class="section" id="s11">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <h2>Custom <span class="accent-purple">Directives</span></h2>
+  </div>
+  <p class="desc">Build your own <code>v-something</code> directives when you need to directly manipulate DOM elements. The <code>el</code> argument is the raw DOM element.</p>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="comment-line">&lt;!-- No value — hardcoded in directive --&gt;</span>
+  <span class="tag">&lt;p</span> <span class="dir">v-highlight</span><span class="tag">&gt;</span>Light green background<span class="tag">&lt;/p&gt;</span>
+
+  <span class="comment-line">&lt;!-- Pass a string value --&gt;</span>
+  <span class="tag">&lt;p</span> <span class="dir">v-highlight1</span>=<span class="val">"'pink'"</span><span class="tag">&gt;</span>Pink background<span class="tag">&lt;/p&gt;</span>
+
+  <span class="comment-line">&lt;!-- Pass an object with multiple properties --&gt;</span>
+  <span class="tag">&lt;p</span> <span class="dir">v-highlight2</span>=<span class="val">"{color:'lightblue', border:'navy 3px solid'}"</span><span class="tag">&gt;</span>
+    Blue + border
+  <span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="k">const</span> app = <span class="fn">createApp</span>({})
+
+<span class="comment-line">// el = the DOM element, binding.value = what you passed in</span>
+app.<span class="fn">directive</span>(<span class="s">'highlight'</span>, {
+  <span class="fn">created</span>(el) { el.style.backgroundColor = <span class="s">'lightgreen'</span> }
+})
+
+app.<span class="fn">directive</span>(<span class="s">'highlight1'</span>, {
+  <span class="fn">created</span>(el, binding) { el.style.backgroundColor = binding.value }
+})
+
+app.<span class="fn">directive</span>(<span class="s">'highlight2'</span>, {
+  <span class="fn">created</span>(el, binding) {
+    el.style.backgroundColor = binding.value.color
+    el.style.border          = binding.value.border
+    el.style.fontStyle       = binding.value.font
+  }
+})
+
+app.<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+</div>
+
+<!-- ─── 12. router ─── -->
+<div class="section" id="s12">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <h2>Vue <span class="accent-blue">Router</span></h2>
+  </div>
+  <p class="desc">Enables client-side navigation between "pages" without a full page reload. Requires the <code>vue-router</code> library in addition to Vue.</p>
+
+<pre><span class="comment-line">&lt;!-- ① Load both libraries --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://unpkg.com/vue@3/dist/vue.global.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://unpkg.com/vue-router@4"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="comment-line">&lt;!-- ② Navigation links (replaces &lt;a href&gt;) --&gt;</span>
+<span class="tag">&lt;router-link</span> <span class="attr">to</span>=<span class="val">"/"</span><span class="tag">&gt;</span>Home<span class="tag">&lt;/router-link&gt;</span>
+<span class="tag">&lt;router-link</span> <span class="attr">to</span>=<span class="val">"/about"</span><span class="tag">&gt;</span>About<span class="tag">&lt;/router-link&gt;</span>
+
+<span class="comment-line">&lt;!-- ③ Where matched component renders --&gt;</span>
+<span class="tag">&lt;router-view&gt;&lt;/router-view&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="comment-line">// Step 1 — Define components for each route</span>
+<span class="k">const</span> Home  = { <span class="p">template</span>: <span class="s">'&lt;div&gt;&lt;h2&gt;Home&lt;/h2&gt;&lt;/div&gt;'</span> }
+<span class="k">const</span> About = { <span class="p">template</span>: <span class="s">'&lt;div&gt;&lt;h2&gt;About&lt;/h2&gt;&lt;/div&gt;'</span> }
+
+<span class="comment-line">// Step 2 — Map URL paths to components</span>
+<span class="k">const</span> routes = [
+  { <span class="p">path</span>: <span class="s">'/'</span>,       <span class="p">component</span>: Home },
+  { <span class="p">path</span>: <span class="s">'/about'</span>,  <span class="p">component</span>: About },
+]
+
+<span class="comment-line">// Step 3 — Create the router instance</span>
+<span class="k">const</span> router = VueRouter.<span class="fn">createRouter</span>({
+  <span class="p">history</span>: VueRouter.<span class="fn">createWebHashHistory</span>(),  <span class="comment-line">// uses # in URL</span>
+  routes
+})
+
+<span class="comment-line">// Step 4 — Mount app with router plugin</span>
+<span class="k">const</span> app = Vue.<span class="fn">createApp</span>({})
+app.<span class="fn">use</span>(router)
+app.<span class="fn">mount</span>(<span class="s">'#app'</span>)
+<span class="tag">&lt;/script&gt;</span></pre>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h4>&lt;router-link&gt;</h4>
+      <p>Replaces <code>&lt;a href&gt;</code> for navigation. Prevents full page reload and updates the URL.</p>
+    </div>
+    <div class="card">
+      <h4>&lt;router-view&gt;</h4>
+      <p>Acts as a placeholder — Vue swaps in the matching component here when the route changes.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+
+
+</body></html>

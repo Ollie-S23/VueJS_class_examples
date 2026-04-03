@@ -1,0 +1,567 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e2a;
+    --border: #252a38;
+    --green: #42d392;
+    --blue: #61affe;
+    --orange: #ffa94d;
+    --pink: #f97fb4;
+    --purple: #b388ff;
+    --yellow: #ffe066;
+    --red: #ff6b6b;
+    --text: #cdd6f4;
+    --muted: #6c7086;
+    --white: #e6e9f4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; }
+
+  .hero {
+    background: linear-gradient(135deg, #0d0f14 0%, #1a1e2a 50%, #0f1420 100%);
+    padding: 48px 40px 36px;
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(97,175,254,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(97,175,254,0.1);
+    border: 1px solid rgba(97,175,254,0.3);
+    border-radius: 99px; padding: 4px 14px;
+    font-size: 12px; color: var(--blue);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero h1 { font-size: clamp(30px, 5vw, 50px); font-weight: 800; color: var(--white); line-height: 1.1; }
+  .hero h1 span { color: var(--blue); }
+  .hero p { color: var(--muted); font-size: 15px; margin-top: 10px; font-family: 'Space Mono', monospace; }
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .toc a {
+    text-decoration: none; background: var(--surface2);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 5px 12px; font-size: 12px; color: var(--muted);
+    transition: all 0.2s; font-family: 'Space Mono', monospace;
+  }
+  .toc a:hover { border-color: var(--blue); color: var(--blue); }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .section {
+    margin-bottom: 52px;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .section:nth-child(1){animation-delay:.05s}.section:nth-child(2){animation-delay:.1s}
+  .section:nth-child(3){animation-delay:.15s}.section:nth-child(4){animation-delay:.2s}
+  .section:nth-child(5){animation-delay:.25s}.section:nth-child(6){animation-delay:.3s}
+  .section:nth-child(7){animation-delay:.35s}
+  @keyframes fadeUp { to { opacity:1; transform:none; } }
+
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .section-num {
+    font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted);
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2px 7px;
+  }
+  .section h2 { font-size: 22px; font-weight: 700; color: var(--white); }
+  .section h2 .g  { color: var(--green); }
+  .section h2 .b  { color: var(--blue); }
+  .section h2 .o  { color: var(--orange); }
+  .section h2 .pk { color: var(--pink); }
+  .section h2 .pu { color: var(--purple); }
+  .section h2 .r  { color: var(--red); }
+
+  .desc { font-size: 14px; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+  .desc strong { color: var(--text); }
+
+  pre {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px;
+    font-family: 'Space Mono', monospace; font-size: 12.5px;
+    line-height: 1.75; overflow-x: auto; position: relative;
+  }
+  .tag   { color: var(--pink); }
+  .attr  { color: var(--orange); }
+  .val   { color: var(--yellow); }
+  .dir   { color: var(--green); }
+  .interp{ color: var(--blue); }
+  .cmt   { color: #555c7a; font-style: italic; }
+  .k     { color: var(--pink); }
+  .fn    { color: var(--blue); }
+  .s     { color: var(--yellow); }
+  .n     { color: var(--orange); }
+  .p     { color: var(--orange); }
+  .rx    { color: var(--purple); }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .pill {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 12px;
+    font-size: 12px; font-family: 'Space Mono', monospace;
+  }
+  .pill.g  { border-color: rgba(66,211,146,0.4); color: var(--green); }
+  .pill.b  { border-color: rgba(97,175,254,0.4); color: var(--blue); }
+  .pill.o  { border-color: rgba(255,169,77,0.4); color: var(--orange); }
+  .pill.pu { border-color: rgba(179,136,255,0.4);color: var(--purple); }
+  .pill.pk { border-color: rgba(249,127,180,0.4);color: var(--pink); }
+  .pill.r  { border-color: rgba(255,107,107,0.4);color: var(--red); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .grid2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .card h4 { font-size: 13px; color: var(--blue); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .card h4.g { color: var(--green); }
+  .card h4.o { color: var(--orange); }
+  .card h4.r { color: var(--red); }
+  .card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card code {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    background: var(--bg); padding: 1px 5px; border-radius: 3px; color: var(--blue);
+  }
+
+  .tip {
+    background: rgba(97,175,254,0.05);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px; font-size: 13px; color: var(--muted);
+    margin-top: 12px; line-height: 1.6;
+  }
+  .tip strong { color: var(--blue); }
+  .tip.g { background: rgba(66,211,146,0.05); border-color: var(--green); }
+  .tip.g strong { color: var(--green); }
+  .tip.o { background: rgba(255,169,77,0.05); border-color: var(--orange); }
+  .tip.o strong { color: var(--orange); }
+
+  .struct-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+  .struct-row { display: flex; border-bottom: 1px solid var(--border); }
+  .struct-row:last-child { border-bottom: none; }
+  .struct-key {
+    width: 160px; flex-shrink: 0; background: var(--surface2);
+    padding: 10px 16px; font-family: 'Space Mono', monospace;
+    font-size: 12px; color: var(--orange); display: flex; align-items: center;
+  }
+  .struct-val { padding: 10px 16px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .struct-val code { font-family: 'Space Mono', monospace; font-size: 11px; background: var(--bg); padding: 1px 5px; border-radius: 3px; color: var(--blue); }
+
+  .comp-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    background: rgba(179,136,255,0.1); border: 1px solid rgba(179,136,255,0.3);
+    color: var(--purple); border-radius: 4px; padding: 2px 8px;
+    margin: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">📋 COS30043 · Vue 3 — Week 2</div>
+  <h1>Forms &amp; <span>Vuetify</span></h1>
+  <p>// Validation, form controls, and the Vuetify component library</p>
+  <nav class="toc">
+    <a href="#s1">HTML Validation</a>
+    <a href="#s2">Vue Form Validation</a>
+    <a href="#s3">e.preventDefault</a>
+    <a href="#s4">Vuetify Setup</a>
+    <a href="#s5">Vuetify Layout</a>
+    <a href="#s6">Vuetify Form</a>
+    <a href="#s7">Rules Array</a>
+    <a href="#s8">Form Controls</a>
+  </nav>
+</div>
+
+<div class="content">
+
+<!-- ─── 1. HTML BUILT-IN VALIDATION ─── -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>HTML <span class="g">Built-in Validation</span></h2>
+  </div>
+  <p class="desc">The browser can handle basic validation with nothing but HTML attributes — no JavaScript needed. Good for quick constraints, but limited in what error messages you can show.</p>
+
+  <div class="struct-box">
+    <div class="struct-row"><div class="struct-key">required</div><div class="struct-val">Field must not be empty before submitting.</div></div>
+    <div class="struct-row"><div class="struct-key">minlength / maxlength</div><div class="struct-val">Text must be within the character count range.</div></div>
+    <div class="struct-row"><div class="struct-key">min / max</div><div class="struct-val">Number or date must be within the given range.</div></div>
+    <div class="struct-row"><div class="struct-key">type="email"</div><div class="struct-val">Browser checks for a valid email format automatically.</div></div>
+    <div class="struct-row"><div class="struct-key">type="number"</div><div class="struct-val">Only allows numeric input.</div></div>
+    <div class="struct-row"><div class="struct-key">type="date"</div><div class="struct-val">Renders a native date picker.</div></div>
+    <div class="struct-row"><div class="struct-key">pattern="..."</div><div class="struct-val">Input must match the given <strong>regular expression</strong>. e.g. <code>\d{4}</code> = exactly 4 digits.</div></div>
+  </div>
+
+<pre><span class="tag">&lt;form</span> <span class="attr">method</span>=<span class="val">"post"</span> <span class="attr">action</span>=<span class="val">"formtest.php"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- required + length limits --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span>   <span class="attr">name</span>=<span class="val">"fName"</span>
+         <span class="attr">required</span> <span class="attr">minlength</span>=<span class="val">"5"</span> <span class="attr">maxlength</span>=<span class="val">"8"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- numeric range --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">name</span>=<span class="val">"age"</span>
+         <span class="attr">min</span>=<span class="val">"10"</span> <span class="attr">max</span>=<span class="val">"50"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- date picker --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"date"</span> <span class="attr">name</span>=<span class="val">"date"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- regex pattern: exactly 4 digits --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">name</span>=<span class="val">"postcode"</span>
+         <span class="attr">pattern</span>=<span class="val">"\d{4}"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="attr">value</span>=<span class="val">"Submit"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+</div>
+
+<!-- ─── 2. VUE FORM VALIDATION ─── -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Vue <span class="pk">Form Validation</span></h2>
+  </div>
+  <p class="desc">For custom error messages and more control, validate inside a Vue <strong>method</strong>. Hook into the form's <code>@submit</code> event and prevent submission if validation fails.</p>
+
+<pre><span class="cmt">&lt;!-- HTML: attach checkForm to the submit event --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">method</span>=<span class="val">"post"</span> <span class="dir">@submit</span>=<span class="val">"checkForm"</span>
+      <span class="attr">action</span>=<span class="val">"formtest.php"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- Error list — only shows when errors array is non-empty --&gt;</span>
+  <span class="tag">&lt;div</span> <span class="dir">v-if</span>=<span class="val">"errors.length"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+      <span class="tag">&lt;li</span> <span class="dir">v-for</span>=<span class="val">"e in errors"</span><span class="tag">&gt;</span><span class="interp">{{ e }}</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="dir">v-model</span>=<span class="val">"fName"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="dir">v-model</span>=<span class="val">"lName"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="attr">value</span>=<span class="val">"Submit"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+
+<pre style="margin-top:12px"><span class="cmt">// simple form.js</span>
+<span class="fn">createApp</span>({
+  <span class="p">data</span>() {
+    <span class="k">return</span> {
+      <span class="p">fName</span>: <span class="s">''</span>,
+      <span class="p">lName</span>: <span class="s">''</span>,
+      <span class="p">errors</span>: []    <span class="cmt">// collects all error messages</span>
+    }
+  },
+  <span class="p">methods</span>: {
+    <span class="fn">checkForm</span>(e) {
+      <span class="k">var</span> result = <span class="k">true</span>
+      <span class="k">this</span>.<span class="p">errors</span> = []    <span class="cmt">// reset errors on each attempt</span>
+
+      <span class="k">if</span> (!<span class="k">this</span>.<span class="p">fName</span>.<span class="fn">trim</span>()) {     <span class="cmt">// .trim() removes whitespace</span>
+        result = <span class="k">false</span>
+        <span class="k">this</span>.<span class="p">errors</span>.<span class="fn">push</span>(<span class="s">'Please enter first name.'</span>)
+      }
+      <span class="k">if</span> (!<span class="k">this</span>.<span class="p">lName</span>.<span class="fn">trim</span>()) {
+        result = <span class="k">false</span>
+        <span class="k">this</span>.<span class="p">errors</span>.<span class="fn">push</span>(<span class="s">'Please enter last name.'</span>)
+      }
+
+      <span class="k">if</span> (!result)
+        e.<span class="fn">preventDefault</span>()  <span class="cmt">// block form submission</span>
+    }
+  }
+}).<span class="fn">mount</span>(<span class="s">'#app'</span>)</pre>
+</div>
+
+<!-- ─── 3. e.preventDefault ─── -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2><span class="o">e.preventDefault()</span> — Stopping Submission</h2>
+  </div>
+  <p class="desc">When a form submits, the browser normally sends the data and navigates away. <code>e.preventDefault()</code> cancels that default behaviour so you can show errors instead.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 class="g">Without preventDefault</h4>
+      <p>Form submits → page navigates to <code>action</code> URL → errors can't be shown.</p>
+    </div>
+    <div class="card">
+      <h4 class="r">With preventDefault</h4>
+      <p>Submission is blocked → user stays on page → error messages appear in the DOM.</p>
+    </div>
+  </div>
+
+<pre style="margin-top:16px"><span class="cmt">// The 'e' is the submit Event object</span>
+<span class="fn">checkForm</span>(e) {
+  <span class="k">var</span> valid = <span class="k">true</span>
+
+  <span class="cmt">// ... run your checks, set valid = false if anything fails</span>
+
+  <span class="k">if</span> (!valid) {
+    e.<span class="fn">preventDefault</span>()   <span class="cmt">// cancel the browser's default submit</span>
+  }
+  <span class="cmt">// If valid stays true, form submits normally</span>
+}</pre>
+  <div class="tip"><strong>Note:</strong> The event object <code>e</code> is automatically passed to the method when using <code>@submit="checkForm"</code> — you don't need to do anything special to receive it.</div>
+</div>
+
+<!-- ─── 4. VUETIFY SETUP ─── -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>Vuetify <span class="pu">— Setup</span></h2>
+  </div>
+  <p class="desc">Vuetify is a UI component library for Vue 3 built on <strong>Material Design</strong>. It gives you pre-styled, accessible components like buttons, text fields, alerts, and more with minimal CSS writing.</p>
+
+<pre><span class="cmt">&lt;!-- 1. Load Material Design Icons --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"</span>
+      <span class="attr">rel</span>=<span class="val">"stylesheet"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- 2. Load Vuetify CSS --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/npm/vuetify@3.5.14/dist/vuetify.min.css"</span>
+      <span class="attr">rel</span>=<span class="val">"stylesheet"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- 3. Load Vue, then Vuetify JS --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://unpkg.com/vue@3/dist/vue.global.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://cdn.jsdelivr.net/npm/vuetify@3.5.14/dist/vuetify.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="k">const</span> { <span class="fn">createApp</span> }    = Vue
+<span class="k">const</span> { <span class="fn">createVuetify</span> } = Vuetify   <span class="cmt">// destructure from Vuetify global</span>
+
+<span class="k">const</span> vuetify = <span class="fn">createVuetify</span>()    <span class="cmt">// create Vuetify instance</span>
+<span class="k">const</span> app     = <span class="fn">createApp</span>({ <span class="cmt">/* your options */</span> })
+
+app.<span class="fn">use</span>(vuetify)   <span class="cmt">// register Vuetify as a Vue plugin</span>
+app.<span class="fn">mount</span>(<span class="s">'#app'</span>)  <span class="cmt">// mount as normal</span>
+<span class="tag">&lt;/script&gt;</span></pre>
+
+  <div class="tip"><strong>Order matters:</strong> Always load Vue JS before Vuetify JS. And always call <code>app.use(vuetify)</code> before <code>app.mount()</code>.</div>
+</div>
+
+<!-- ─── 5. VUETIFY LAYOUT ─── -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>Vuetify <span class="b">Layout Components</span></h2>
+  </div>
+  <p class="desc">Vuetify has a standard page structure. Most content goes inside <code>&lt;v-main&gt;</code>, and almost everything must be wrapped in <code>&lt;v-app&gt;</code>.</p>
+
+  <div class="struct-box">
+    <div class="struct-row"><div class="struct-key">&lt;v-app&gt;</div><div class="struct-val">Root wrapper — <strong>required</strong> for Vuetify to work. Everything goes inside this.</div></div>
+    <div class="struct-row"><div class="struct-key">&lt;v-app-bar&gt;</div><div class="struct-val">Fixed top navigation bar. Use <code>app</code> prop to lock it in place.</div></div>
+    <div class="struct-row"><div class="struct-key">&lt;v-main&gt;</div><div class="struct-val">The main content area. Adjusts automatically when app-bar/footer are present.</div></div>
+    <div class="struct-row"><div class="struct-key">&lt;v-container&gt;</div><div class="struct-val">Centers and pads content. Like Bootstrap's container. Add <code>fluid</code> to go full-width.</div></div>
+    <div class="struct-row"><div class="struct-key">&lt;v-footer&gt;</div><div class="struct-val">Fixed bottom footer. Use <code>app</code> prop to lock it in place.</div></div>
+  </div>
+
+<pre><span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"app"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;v-app&gt;</span>                         <span class="cmt">&lt;!-- required root --&gt;</span>
+
+    <span class="tag">&lt;v-app-bar</span> <span class="attr">app</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>My App Bar<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/v-app-bar&gt;</span>
+
+    <span class="tag">&lt;v-main&gt;</span>
+      <span class="tag">&lt;v-container</span> <span class="attr">fluid</span><span class="tag">&gt;</span>   <span class="cmt">&lt;!-- fluid = full width --&gt;</span>
+
+        <span class="cmt">&lt;!-- Vuetify button with MDI icon --&gt;</span>
+        <span class="tag">&lt;v-btn</span> <span class="attr">color</span>=<span class="val">"primary"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;v-icon&gt;</span>mdi-pencil<span class="tag">&lt;/v-icon&gt;</span>
+        <span class="tag">&lt;/v-btn&gt;</span>
+        <span class="tag">&lt;v-btn</span> <span class="attr">color</span>=<span class="val">"error"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;v-icon&gt;</span>mdi-alarm<span class="tag">&lt;/v-icon&gt;</span>
+        <span class="tag">&lt;/v-btn&gt;</span>
+
+        <span class="cmt">&lt;!-- Vuetify alerts --&gt;</span>
+        <span class="tag">&lt;v-alert</span> <span class="attr">type</span>=<span class="val">"success"</span><span class="tag">&gt;</span>Success message<span class="tag">&lt;/v-alert&gt;</span>
+        <span class="tag">&lt;v-alert</span> <span class="attr">type</span>=<span class="val">"info"</span><span class="tag">&gt;</span>Info message<span class="tag">&lt;/v-alert&gt;</span>
+
+      <span class="tag">&lt;/v-container&gt;</span>
+    <span class="tag">&lt;/v-main&gt;</span>
+
+    <span class="tag">&lt;v-footer</span> <span class="attr">app</span><span class="tag">&gt;</span><span class="tag">&lt;p&gt;</span>Footer<span class="tag">&lt;/p&gt;&lt;/v-footer&gt;</span>
+
+  <span class="tag">&lt;/v-app&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+
+  <div class="pill-row" style="margin-top:12px">
+    <span class="pill pu">color="primary"</span>
+    <span class="pill r">color="error"</span>
+    <span class="pill g">color="success"</span>
+    <span class="pill b">color="info"</span>
+    <span class="pill o">type="warning"</span>
+  </div>
+</div>
+
+<!-- ─── 6. VUETIFY FORM ─── -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>Vuetify <span class="g">Form Components</span></h2>
+  </div>
+  <p class="desc">Vuetify's form components look polished by default and integrate with a <strong>rules</strong> prop for inline validation — no manual error list needed.</p>
+
+<pre><span class="tag">&lt;v-form</span> <span class="attr">method</span>=<span class="val">"post"</span> <span class="attr">action</span>=<span class="val">"formtest.php"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- Text field — label floats above when focused --&gt;</span>
+  <span class="tag">&lt;v-text-field</span>
+    <span class="attr">name</span>=<span class="val">"firstName"</span>
+    <span class="dir">v-model</span>=<span class="val">"firstName"</span>
+    <span class="dir">:rules</span>=<span class="val">"nameRules"</span>     <span class="cmt">&lt;!-- array of validation functions --&gt;</span>
+    <span class="attr">label</span>=<span class="val">"First Name"</span>
+    <span class="attr">required</span>
+  <span class="tag">&gt;&lt;/v-text-field&gt;</span>
+
+  <span class="cmt">&lt;!-- Email field --&gt;</span>
+  <span class="tag">&lt;v-text-field</span>
+    <span class="attr">name</span>=<span class="val">"email"</span>
+    <span class="dir">v-model</span>=<span class="val">"email"</span>
+    <span class="attr">type</span>=<span class="val">"email"</span>
+    <span class="dir">:rules</span>=<span class="val">"emailRules"</span>
+    <span class="attr">label</span>=<span class="val">"Email"</span>
+  <span class="tag">&gt;&lt;/v-text-field&gt;</span>
+
+  <span class="tag">&lt;v-btn</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="attr">color</span>=<span class="val">"success"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/v-btn&gt;</span>
+
+<span class="tag">&lt;/v-form&gt;</span></pre>
+  <div class="tip"><strong>Key difference from plain HTML:</strong> <code>&lt;v-text-field&gt;</code> renders a full Material Design input with floating label, underline, and inline error display — automatically driven by the <code>:rules</code> array.</div>
+</div>
+
+<!-- ─── 7. RULES ARRAY ─── -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2>The <span class="r">:rules</span> Array</h2>
+  </div>
+  <p class="desc">Rules are an array of <strong>arrow functions</strong> — each receives the current field value <code>v</code> and must return either <code>true</code> (valid) or an <strong>error string</strong> (invalid). Vuetify shows the string automatically under the field.</p>
+
+<pre><span class="cmt">// Each rule: v =&gt; true  OR  v =&gt; 'error message'</span>
+
+<span class="p">nameRules</span>: [
+
+  <span class="cmt">// Rule 1: field must not be empty</span>
+  <span class="cmt">// !! converts a value to boolean — empty string becomes false</span>
+  v =&gt; !!v || <span class="s">'Name is required'</span>,
+
+  <span class="cmt">// Rule 2: max length</span>
+  v =&gt; (v &amp;&amp; v.length &lt;= <span class="n">10</span>) || <span class="s">'Name must be less than 10 characters'</span>,
+
+  <span class="cmt">// Rule 3: letters only — using a regular expression</span>
+  v =&gt; <span class="rx">/^[a-zA-Z]+$/</span>.<span class="fn">test</span>(v) || <span class="s">'Name can only contain letters'</span>
+],
+
+<span class="p">emailRules</span>: [
+  v =&gt; !!v || <span class="s">'E-mail is required'</span>,
+
+  <span class="cmt">// Regex checks for a valid email pattern</span>
+  v =&gt; <span class="rx">/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/</span>.<span class="fn">test</span>(v)
+       || <span class="s">'E-mail must be valid'</span>
+]</pre>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h4>!! (double NOT)</h4>
+      <p>Converts any value to a strict boolean. <code>!!''</code> → <code>false</code>, <code>!!'Amy'</code> → <code>true</code>. Used to check if a field is non-empty.</p>
+    </div>
+    <div class="card">
+      <h4>/regex/.test(v)</h4>
+      <p>Tests the value against a regular expression. Returns <code>true</code> if it matches, <code>false</code> if not. Used for format checks (email, letters only, postcodes).</p>
+    </div>
+  </div>
+
+  <div class="tip o" style="margin-top:16px"><strong>Arrow function shorthand:</strong> <code>v =&gt; !!v || 'msg'</code> is the same as writing <code>function(v) { return !!v || 'msg' }</code>. The <code>||</code> means: if the left side is truthy (valid), return it; otherwise return the error string.</div>
+</div>
+
+<!-- ─── 8. FORM CONTROLS ─── -->
+<div class="section" id="s8">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2>Vuetify <span class="pk">Form Controls</span></h2>
+  </div>
+  <p class="desc">Vuetify has a full set of form controls that all support <code>v-model</code> and the <code>:rules</code> prop. Here's the full set from your files:</p>
+
+<pre><span class="tag">&lt;v-form</span> <span class="attr">method</span>=<span class="val">"post"</span> <span class="attr">action</span>=<span class="val">"formtest.php"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- TEXT FIELD — for single-line text / email --&gt;</span>
+  <span class="tag">&lt;v-text-field</span> <span class="attr">name</span>=<span class="val">"email"</span> <span class="dir">v-model</span>=<span class="val">"email"</span>
+    <span class="attr">type</span>=<span class="val">"email"</span> <span class="dir">:rules</span>=<span class="val">"emailRules"</span> <span class="attr">label</span>=<span class="val">"Email"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/v-text-field&gt;</span>
+
+  <span class="cmt">&lt;!-- RADIO GROUP — one choice only --&gt;</span>
+  <span class="tag">&lt;v-radio-group</span> <span class="attr">name</span>=<span class="val">"sex"</span> <span class="dir">v-model</span>=<span class="val">"sex"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;v-radio</span> <span class="attr">label</span>=<span class="val">"Male"</span>   <span class="attr">value</span>=<span class="val">"M"</span> <span class="attr">color</span>=<span class="val">"red"</span><span class="tag">&gt;&lt;/v-radio&gt;</span>
+    <span class="tag">&lt;v-radio</span> <span class="attr">label</span>=<span class="val">"Female"</span> <span class="attr">value</span>=<span class="val">"F"</span> <span class="attr">color</span>=<span class="val">"green"</span><span class="tag">&gt;&lt;/v-radio&gt;</span>
+    <span class="tag">&lt;v-radio</span> <span class="attr">label</span>=<span class="val">"Other"</span>  <span class="attr">value</span>=<span class="val">"O"</span> <span class="attr">color</span>=<span class="val">"blue"</span><span class="tag">&gt;&lt;/v-radio&gt;</span>
+  <span class="tag">&lt;/v-radio-group&gt;</span>
+
+  <span class="cmt">&lt;!-- CHECKBOXES — multiple choices; v-model binds to an array --&gt;</span>
+  <span class="tag">&lt;v-layout&gt;</span>
+    <span class="tag">&lt;v-checkbox</span> <span class="attr">name</span>=<span class="val">"prog[]"</span> <span class="dir">v-model</span>=<span class="val">"program"</span>
+      <span class="attr">label</span>=<span class="val">"P01 Mathematics"</span> <span class="attr">value</span>=<span class="val">"P01"</span><span class="tag">&gt;&lt;/v-checkbox&gt;</span>
+    <span class="tag">&lt;v-checkbox</span> <span class="attr">name</span>=<span class="val">"prog[]"</span> <span class="dir">v-model</span>=<span class="val">"program"</span>
+      <span class="attr">label</span>=<span class="val">"P02 Swimming"</span>    <span class="attr">value</span>=<span class="val">"P02"</span><span class="tag">&gt;&lt;/v-checkbox&gt;</span>
+  <span class="tag">&lt;/v-layout&gt;</span>
+
+  <span class="cmt">&lt;!-- SELECT DROPDOWN — bound to a list of options --&gt;</span>
+  <span class="tag">&lt;v-select</span> <span class="attr">name</span>=<span class="val">"state"</span> <span class="dir">v-model</span>=<span class="val">"state"</span>
+    <span class="dir">:items</span>=<span class="val">"stateList"</span> <span class="attr">label</span>=<span class="val">"State"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/v-select&gt;</span>
+
+  <span class="cmt">&lt;!-- TEXTAREA — for multi-line text --&gt;</span>
+  <span class="tag">&lt;v-textarea</span> <span class="attr">name</span>=<span class="val">"comments"</span> <span class="attr">label</span>=<span class="val">"Comments"</span>
+    <span class="dir">v-model</span>=<span class="val">"comments"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/v-textarea&gt;</span>
+
+  <span class="tag">&lt;v-btn</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="attr">color</span>=<span class="val">"success"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/v-btn&gt;</span>
+<span class="tag">&lt;/v-form&gt;</span></pre>
+
+<pre style="margin-top:12px"><span class="cmt">// vuetify form controls.js — data setup</span>
+<span class="fn">createApp</span>({
+  <span class="cmt">// Arrow function shorthand for data() — same as data() { return {...} }</span>
+  <span class="p">data</span>: () =&gt; ({
+    <span class="p">firstName</span>: <span class="s">''</span>,
+    <span class="p">email</span>:     <span class="s">''</span>,
+    <span class="p">sex</span>:       <span class="s">'F'</span>,            <span class="cmt">// radio default</span>
+    <span class="p">program</span>:   [<span class="s">'P02'</span>],         <span class="cmt">// checkboxes bind to an ARRAY</span>
+    <span class="p">stateList</span>: [<span class="s">'VIC'</span>,<span class="s">'NSW'</span>,<span class="s">'WA'</span>], <span class="cmt">// options for v-select</span>
+    <span class="p">state</span>:     <span class="s">'VIC'</span>,
+    <span class="p">comments</span>:  <span class="s">''</span>,
+    <span class="p">nameRules</span>:  [ <span class="cmt">/* ... */</span> ],
+    <span class="p">emailRules</span>: [ <span class="cmt">/* ... */</span> ]
+  })
+}).<span class="fn">use</span>(vuetify).<span class="fn">mount</span>(<span class="s">'#app'</span>)</pre>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h4 class="g">Checkbox — array binding</h4>
+      <p>Multiple checkboxes sharing the same <code>v-model</code> name all bind to one <strong>array</strong>. Each checked box adds its <code>value</code> to the array. Pre-check one by including its value in the default: <code>program: ['P02']</code></p>
+    </div>
+    <div class="card">
+      <h4>v-select — items prop</h4>
+      <p>Pass your list of options via <code>:items="stateList"</code> where <code>stateList</code> is an array in <code>data()</code>. The selected value is stored in the bound variable (<code>state</code>).</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+
+</body></html>
