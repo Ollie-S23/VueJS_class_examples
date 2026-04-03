@@ -1,1 +1,3 @@
-# VueJS_class_examples
+#VueJS Class Examples
+
+Class notes and examples for VueJS
